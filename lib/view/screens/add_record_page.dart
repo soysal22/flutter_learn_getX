@@ -32,61 +32,37 @@ class _AddRecordPageState extends State<AddRecordPage> {
         //   mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _cardNumberPicker(),
-          GestureDetector(
-            onTap: () {
-              _pickDate(context);
-            },
-
-            // onTap: () async {
-            //   // Date Picker ı göster ve seçili tarihi selectedDate ata
-
-            //   var initialDate = DateTime.now();
-
-            //   // seçilecek olan yeni tarihi de otomatik olarak ekranda görebilmek için null safety özzelliğin kullandım
-
-            //   var newDate = await showDatePicker(
-            //         context: context,
-            //         initialDate: initialDate,
-            //         firstDate: initialDate.subtract(const Duration(days: 365)),
-            //         // 365 vb geride ki bir günün seçebilsin diye
-
-            //         // buraya   bu şekilde de DateTime(2100) yazabiliriz
-            //         lastDate: initialDate.add(const Duration(days: 30)),
-            //         // 30 ilerideki bir tarihi seçebilsin diye
-            //       ) ??
-            //       selectedDate;
-            //   // set state i çağır ekranın yenilenmesi için
-
-            //   if (newDate != null) {
-            //     selectedDate = newDate;
-            //   }
-
-            //   setState(() {});
-            //   print(selectedDate.toString());
-            // },
-            child: Card(
-                color: Constants.colorGrey,
-                margin: const EdgeInsets.all(10),
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        FontAwesomeIcons.calendar,
-                        size: 40,
-                      ),
-                      Expanded(
-                          child: Text(
-                        DateFormat.yMMMMEEEEd().format(selectedDate),
-                        textAlign: TextAlign.center,
-                      )),
-                    ],
-                  ),
-                )),
-          ),
+          _datePickerDesign(context),
           _button(),
         ],
       ),
+    );
+  }
+
+  GestureDetector _datePickerDesign(context) {
+    return GestureDetector(
+      onTap: () {
+        _pickDate(context);
+      },
+      child: Card(
+          color: Constants.colorGrey,
+          margin: const EdgeInsets.all(10),
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Row(
+              children: [
+                const Icon(
+                  FontAwesomeIcons.calendar,
+                  size: 40,
+                ),
+                Expanded(
+                    child: Text(
+                  DateFormat.yMMMMEEEEd().format(selectedDate),
+                  textAlign: TextAlign.center,
+                )),
+              ],
+            ),
+          )),
     );
   }
 
