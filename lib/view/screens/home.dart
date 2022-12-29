@@ -4,7 +4,6 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weight_tracer_learn_getx/core/constants/constants.dart';
-import 'package:weight_tracer_learn_getx/core/controller/controller.dart';
 import 'package:weight_tracer_learn_getx/view/screens/add_record_page.dart';
 import 'package:weight_tracer_learn_getx/view/screens/graph.dart';
 import 'package:weight_tracer_learn_getx/view/screens/history.dart';
@@ -17,7 +16,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final Controller _controller = Get.put(Controller());
   final iconList = <IconData>[
     Icons.auto_graph_rounded,
     Icons.history_outlined,
